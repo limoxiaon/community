@@ -11,3 +11,14 @@ body{
     float: right;
     margin-bottom: 15px;
 }
+
+.avatar_url{
+    height: 60px;
+    width: 60px;
+}
+
+.text{
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}

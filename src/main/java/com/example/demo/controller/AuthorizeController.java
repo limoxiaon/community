@@ -53,6 +53,7 @@ public class AuthorizeController {
             user1.setName(user.getName());
             user1.setGmtCreate(System.currentTimeMillis());
             user1.setGmtModified(user1.getGmtCreate());
+            user1.setAvatarUrl(user.getAvatarUrl());
             String token = UUID.randomUUID().toString();
             user1.setToken(token);
             userMapper.insert(user1);
