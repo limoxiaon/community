@@ -13,8 +13,8 @@ body{
 }
 
 .avatar_url{
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
 }
 
 .text{
@@ -25,4 +25,8 @@ body{
 
 .profile .questions{
     margin-top: 20px;
+}
+
+.menu{
+    color:rgb(153,153,153);
 }

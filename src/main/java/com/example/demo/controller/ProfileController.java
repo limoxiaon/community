@@ -21,7 +21,7 @@ public class ProfileController {
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable("action") String section,
                           @RequestParam(value = "page",defaultValue = "1") Integer page,
-                          @RequestParam(value = "size",defaultValue = "3") Integer size,
+                          @RequestParam(value = "size",defaultValue = "5") Integer size,
                           HttpServletRequest request,
                           Model model){
         User user=(User) request.getSession().getAttribute("user");
@@ -36,7 +36,7 @@ public class ProfileController {
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");
         }
-        Integer id=Integer.valueOf(user.getAccountID());
+        Integer id=Integer.valueOf(user.getAccountId());
         PageDTO pageDTO =questionDTOService.listByUser(98,page,size);
         model.addAttribute("pageDTO",pageDTO);
         return "profile";

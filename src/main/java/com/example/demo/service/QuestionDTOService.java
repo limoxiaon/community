@@ -23,6 +23,15 @@ public class QuestionDTOService {
     @Autowired
     private QuestionMapper questionMapper;
 
+    public  QuestionDTO getById(Integer id) {
+        QuestionDTO questionDTO=new QuestionDTO();
+        Question question=questionMapper.getById(id);
+        User user=userMapper.findById(question.getCreator());
+        BeanUtils.copyProperties(question,questionDTO);
+        questionDTO.setUser(user);
+        return questionDTO;
+    }
+
     public PageDTO list(Integer page, Integer size) {
         Integer offset=size*(page-1);
         List<Question> questions=questionMapper.list(offset,size);
