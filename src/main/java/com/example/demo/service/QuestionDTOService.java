@@ -40,4 +40,22 @@ public class QuestionDTOService {
         pageDTO.setPageParam(totalCount,page,size);
         return pageDTO;
     }
+
+    public PageDTO listByUser(Integer id,Integer page, Integer size){
+        Integer offset=size*(page-1);
+        List<Question> questions=questionMapper.listByUser(id,offset,size);
+        List<QuestionDTO> questionDTOS=new ArrayList<>();
+        PageDTO pageDTO=new PageDTO();
+        for(Question question:questions){
+            User user=userMapper.findById(question.getCreator());
+            QuestionDTO questionDTO=new QuestionDTO();
+            BeanUtils.copyProperties(question,questionDTO);
+            questionDTO.setUser(user);
+            questionDTOS.add(questionDTO);
+        }
+        pageDTO.setQuestionDTOS(questionDTOS);
+        Integer totalCount=questionMapper.totalUser(id);
+        pageDTO.setPageParam(totalCount,page,size);
+        return pageDTO;
+    }
 }
