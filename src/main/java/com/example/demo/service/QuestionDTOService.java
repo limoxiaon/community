@@ -67,4 +67,17 @@ public class QuestionDTOService {
         pageDTO.setPageParam(totalCount,page,size);
         return pageDTO;
     }
+
+    public void createOrUpdate(Question question) {
+        if(question.getId() == null){
+            //执行插入操作
+            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.insert(question);
+        }else{
+            //执行更新操作
+            question.setGmtModified(System.currentTimeMillis());
+            questionMapper.update(question);
+        }
+    }
 }
