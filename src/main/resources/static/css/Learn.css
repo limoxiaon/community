@@ -30,3 +30,8 @@ body{
 .menu{
     color:rgb(153,153,153);
 }
+
+.jumbotron{
+    margin-left: 300px;
+    margin-top: 100px;
+}
