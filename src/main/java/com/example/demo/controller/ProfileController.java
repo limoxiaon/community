@@ -37,7 +37,7 @@ public class ProfileController {
             model.addAttribute("sectionName","最新回复");
         }
         Integer id=Integer.valueOf(user.getAccountId());
-        PageDTO pageDTO =questionDTOService.listByUser(98,page,size);
+        PageDTO pageDTO =questionDTOService.listByUser(user.getId(),page,size);
         model.addAttribute("pageDTO",pageDTO);
         return "profile";
     }

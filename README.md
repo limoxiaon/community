@@ -64,7 +64,7 @@ CREATE TABLE USER
 ```bash
 mvn flyway:migrate
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
-```
+```mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 
 ## 更新日志
 - 2019-7-30 修复 session 过期时间很短问题   
