@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.CommentCreateDTO;
 import com.example.demo.dto.CommentDTO;
 import com.example.demo.dto.ResultDTO;
+import com.example.demo.enums.CommentTypeEnum;
 import com.example.demo.exception.CustomizeErrorCode;
 import com.example.demo.model.Comment;
 import com.example.demo.model.User;
@@ -10,10 +11,7 @@ import com.example.demo.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -23,7 +21,6 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
-
 
     @ResponseBody
     @RequestMapping(value = "/comment",method = RequestMethod.POST)
@@ -48,7 +45,14 @@ public class CommentController {
         comment.setGmtModified(System.currentTimeMillis());
         comment.setCommentator(user.getId());
         comment.setLikeCount(0L);
-        commentService.insert(comment);
+        commentService.insert(comment,user);
         return ResultDTO.okOf();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/comment/{id}",method = RequestMethod.GET)
+    public ResultDTO<List<CommentDTO>> comments(@PathVariable(name="id") Long id){
+        List<CommentDTO> commentDTOS = commentService.listByTargetId(id, CommentTypeEnum.COMMENT);
+        return ResultDTO.okOf(commentDTOS);
     }
 }

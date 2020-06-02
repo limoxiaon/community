@@ -10,7 +10,6 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.Question;
 import com.example.demo.model.QuestionExample;
 import com.example.demo.model.User;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +44,13 @@ public class QuestionDTOService {
 
     public PageDTO list(Integer page, Integer size) {
         Integer offset=size*(page-1);
-        List<Question> questions = questionMapper.selectByExampleWithRowbounds(new QuestionExample(), new RowBounds(offset, size));
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.setOrderByClause("gmt_Create desc");
+        List<Question> questions = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
         List<QuestionDTO> questionDTOS=new ArrayList<>();
-        PageDTO pageDTO=new PageDTO();
+
+        PageDTO<QuestionDTO> pageDTO=new PageDTO<>();
+
         for(Question question:questions){
             User user=userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO=new QuestionDTO();
@@ -55,7 +58,7 @@ public class QuestionDTOService {
             questionDTO.setUser(user);
             questionDTOS.add(questionDTO);
         }
-        pageDTO.setQuestionDTOS(questionDTOS);
+        pageDTO.setData(questionDTOS);
         Integer totalCount=(int)questionMapper.countByExample(new QuestionExample());
         pageDTO.setPageParam(totalCount,page,size);
         return pageDTO;
@@ -67,7 +70,7 @@ public class QuestionDTOService {
         example1.createCriteria().andCreatorEqualTo(id);
         List<Question> questions = questionMapper.selectByExampleWithRowbounds(example1, new RowBounds(offset, size));
         List<QuestionDTO> questionDTOS=new ArrayList<>();
-        PageDTO pageDTO=new PageDTO();
+        PageDTO<QuestionDTO> pageDTO=new PageDTO();
         for(Question question:questions){
             User user=userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO=new QuestionDTO();
@@ -75,7 +78,7 @@ public class QuestionDTOService {
             questionDTO.setUser(user);
             questionDTOS.add(questionDTO);
         }
-        pageDTO.setQuestionDTOS(questionDTOS);
+        pageDTO.setData(questionDTOS);
         QuestionExample example = new QuestionExample();
         example.createCriteria().andCreatorEqualTo(id);
         Integer totalCount=(int)questionMapper.countByExample(example);

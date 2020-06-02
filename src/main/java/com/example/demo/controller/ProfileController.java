@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.PageDTO;
+import com.example.demo.model.Notification;
 import com.example.demo.model.User;
+import com.example.demo.service.NotificationService;
 import com.example.demo.service.QuestionDTOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class ProfileController {
     @Autowired
     private QuestionDTOService questionDTOService;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable("action") String section,
                           @RequestParam(value = "page",defaultValue = "1") Integer page,
@@ -32,13 +37,15 @@ public class ProfileController {
         if("questions".equals(section)){
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我关注的问题");
+            Integer id=Integer.valueOf(user.getAccountId());
+            PageDTO pageDTO =questionDTOService.listByUser(user.getId(),page,size);
+            model.addAttribute("pageDTO",pageDTO);
         }else if("replies".equals(section)){
+            PageDTO pageDTO =notificationService.list(user.getId(),page,size);
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");
+            model.addAttribute("pageDTO",pageDTO);
         }
-        Integer id=Integer.valueOf(user.getAccountId());
-        PageDTO pageDTO =questionDTOService.listByUser(user.getId(),page,size);
-        model.addAttribute("pageDTO",pageDTO);
         return "profile";
     }
 }
