@@ -16,9 +16,11 @@ public class UserService {
 
     public void createOrUpdate(User user) {
 
+        //根据AccountId获取User，查看数据库是否存在此用户
         UserExample example = new UserExample();
         example.createCriteria().andAccountIdEqualTo(user.getAccountId());
         List<User> users = userMapper.selectByExample(example);
+
         if(users.size() == 0){
             //执行插入操作
             user.setGmtCreate(System.currentTimeMillis());
@@ -32,6 +34,7 @@ public class UserService {
             updateUser.setAvatarUrl(user.getAvatarUrl());
             updateUser.setToken(user.getToken());
             updateUser.setGmtModified(System.currentTimeMillis());
+            //更新数据库信息
             UserExample userExample = new UserExample();
             userExample.createCriteria().andIdEqualTo(dBUser.getId());
             userMapper.updateByExampleSelective(updateUser, userExample);

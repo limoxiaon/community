@@ -60,6 +60,7 @@
             <h4>
                 <span th:text="${questionDTO.commentCount}"></span>个回复
             </h4>
+
             <hr>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comments" th:each="comment : ${comments}">
                 <div class="media">
@@ -131,6 +132,7 @@
                     </h4>
                     </div>
                 </div>
+
             <input type="hidden" id="question_id" th:value="${questionDTO.id}">
             <textarea class="form-control comment" rows="6" id="comment_content"></textarea>
             <button type="button" class="comment-btn btn btn-success" onclick="post()">回复</button>

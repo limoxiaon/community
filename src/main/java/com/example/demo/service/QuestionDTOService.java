@@ -46,24 +46,31 @@ public class QuestionDTOService {
         return questionDTO;
     }
 
+    /*
+      获取当前页的问题还有页码的一些值
+     */
     public PageDTO list(String search, Integer page, Integer size) {
 
+        //将search参数转化为正则表达式需要的一些参数
         if(StringUtils.isNotBlank(search)){
             String[] tags=StringUtils.split(search," ");
             search= Arrays.stream(tags).collect(Collectors.joining("|"));
         }
 
+        //参照数据库问题的总数，进行分页
         QuestionQueryDTO questionQueryDTO=new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
         Integer totalCount=questionExtMapper.countBySearch(questionQueryDTO);
 
+        //查找好当前页的问题
         Integer offset=size*(page-1);
         questionQueryDTO.setPage(offset);
         questionQueryDTO.setSize(size);
         List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
+
+        //对当前页的问题进行进一步的封装
         List<QuestionDTO> questionDTOS=new ArrayList<>();
         PageDTO<QuestionDTO> pageDTO=new PageDTO<>();
-
         for(Question question:questions){
             User user=userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO=new QuestionDTO();
@@ -72,6 +79,8 @@ public class QuestionDTOService {
             questionDTOS.add(questionDTO);
         }
         pageDTO.setData(questionDTOS);
+
+        //设置好页码所需要的以下参数
         pageDTO.setPageParam(totalCount,page,size);
         return pageDTO;
     }

@@ -7,6 +7,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
+//自定义的Web配置，实现了WebMvcConfigurer和@EnableWebMvc，则默认配置失效
+//此时可以添加拦截器
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {

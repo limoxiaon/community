@@ -1,1 +1,1 @@
-alter table USER add bio varchar(50);
+alter table USER add bio varchar(50);    --用户的简介

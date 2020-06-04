@@ -22,6 +22,7 @@ public class NotificationController {
                           @PathVariable(name = "id") Long id) {
 
         User user = (User) request.getSession().getAttribute("user");
+
         if (user == null) {
             return "redirect:/";
         }

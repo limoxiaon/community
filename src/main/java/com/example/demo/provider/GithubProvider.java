@@ -23,6 +23,9 @@ public class GithubProvider {
                     .build();
         try (Response response = client.newCall(request).execute()) {
                 String string=response.body().string();
+                //System.out.println(string);
+                //access_token=dc4b9677d84a71dabba45a9aad9b52a3531e6b41&scope=user&token_type=bearer
+                //通过方法获取token
                 String token=string.split("&")[0].split("=")[1];
                 return token;
             } catch (Exception e) {
@@ -39,6 +42,8 @@ public class GithubProvider {
         try {
             Response response = client.newCall(request).execute();
             String string = response.body().string();
+            System.out.println(string);
+            //{"login":"limoxiaon","id":64885834,"node_id":"MDQ6VXNlcjY0ODg1ODM0","avatar_url":"https://avatars3.githubusercontent.com/u/64885834?v=4"}
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
         } catch (Exception e) {

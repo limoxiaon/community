@@ -12,7 +12,6 @@ public enum CustomizeErrorCode implements ErrorCode {
     NOTIFICATION_NOT_FOUND(2009,"通知难道不翼而飞了？"),
     FILE_UPLOAD_FAIL(2010,"上传失败啦，换个试试？？" );
 
-
     private String message;
     private Integer code;
 

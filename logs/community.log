@@ -1,0 +1,76 @@
+2020-06-04 14:06:47.573  WARN 10300 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-06-04 14:06:47.585  INFO 10300 --- [restartedMain] com.example.demo.CommunityApplication    : Starting CommunityApplication on DESKTOP-0SNPRRM with PID 10300 (G:\IdeaProjects\Learn\target\classes started by XiaoLi in G:\IdeaProjects\Learn)
+2020-06-04 14:06:47.586  INFO 10300 --- [restartedMain] com.example.demo.CommunityApplication    : No active profile set, falling back to default profiles: default
+2020-06-04 14:06:47.816  INFO 10300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-04 14:06:47.817  INFO 10300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-04 14:06:54.134  INFO 10300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-06-04 14:06:54.177  INFO 10300 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-04 14:06:54.178  INFO 10300 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-06-04 14:06:54.194  INFO 10300 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2020-06-04 14:06:54.194  INFO 10300 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-06-04 14:06:54.194  INFO 10300 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-06-04 14:06:54.239  INFO 10300 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2020-06-04 14:06:54.413  INFO 10300 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-04 14:06:54.414  INFO 10300 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6597 ms
+2020-06-04 14:06:56.593  INFO 10300 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-04 14:06:56.663  INFO 10300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-06-04 14:06:56.666  INFO 10300 --- [restartedMain] com.example.demo.CommunityApplication    : Started CommunityApplication in 11.31 seconds (JVM running for 13.354)
+2020-06-04 14:07:21.846  INFO 10300 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-04 14:07:21.846  INFO 10300 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-04 14:07:21.858  INFO 10300 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-06-04 14:07:22.171  INFO 10300 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-04 14:07:22.880  INFO 10300 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-04 14:07:22.890 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.QuestionExtMapper.countBySearch  : ==>  Preparing: select count(*) from QUESTION 
+2020-06-04 14:07:22.918 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.QuestionExtMapper.countBySearch  : ==> Parameters: 
+2020-06-04 14:07:22.941 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.QuestionExtMapper.countBySearch  : <==      Total: 1
+2020-06-04 14:07:22.954 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.Q.selectBySearch                 : ==>  Preparing: select * from QUESTION order by gmt_create desc limit ?,? 
+2020-06-04 14:07:22.956 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.Q.selectBySearch                 : ==> Parameters: 0(Integer), 5(Integer)
+2020-06-04 14:07:22.963 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.Q.selectBySearch                 : <==      Total: 5
+2020-06-04 14:07:22.964 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:22.966 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:22.966 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:22.973 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:22.973 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:22.974 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:22.974 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:22.975 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:22.975 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:22.975 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:22.975 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 98(Long)
+2020-06-04 14:07:22.977 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:22.979 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:22.980 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 98(Long)
+2020-06-04 14:07:22.980 DEBUG 10300 --- [http-nio-8888-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:34.209 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER WHERE ( ACCOUNT_ID = ? ) 
+2020-06-04 14:07:34.211 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 64885834(String)
+2020-06-04 14:07:34.212 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-06-04 14:07:34.216 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.m.U.updateByExampleSelective       : ==>  Preparing: update USER SET NAME = ?, TOKEN = ?, GMT_MODIFIED = ?, AVATAR_URL = ? WHERE ( ID = ? ) 
+2020-06-04 14:07:34.217 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.m.U.updateByExampleSelective       : ==> Parameters: 君莫笑(String), e6638ee7-9f3a-436f-8181-917f870cbc37(String), 1591250854212(Long), https://avatars3.githubusercontent.com/u/64885834?v=4(String), 98(Long)
+2020-06-04 14:07:34.222 DEBUG 10300 --- [http-nio-8888-exec-9] c.e.d.m.U.updateByExampleSelective       : <==    Updates: 1
+2020-06-04 14:07:34.251 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER WHERE ( TOKEN = ? ) 
+2020-06-04 14:07:34.254 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: e6638ee7-9f3a-436f-8181-917f870cbc37(String)
+2020-06-04 14:07:34.254 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-06-04 14:07:34.264 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-06-04 14:07:34.266 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.N.countByExample                 : ==> Parameters: 98(Long), 0(Integer)
+2020-06-04 14:07:34.271 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.N.countByExample                 : <==      Total: 1
+2020-06-04 14:07:34.274 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.QuestionExtMapper.countBySearch  : ==>  Preparing: select count(*) from QUESTION 
+2020-06-04 14:07:34.274 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.QuestionExtMapper.countBySearch  : ==> Parameters: 
+2020-06-04 14:07:34.275 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.QuestionExtMapper.countBySearch  : <==      Total: 1
+2020-06-04 14:07:34.275 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.Q.selectBySearch                 : ==>  Preparing: select * from QUESTION order by gmt_create desc limit ?,? 
+2020-06-04 14:07:34.275 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.Q.selectBySearch                 : ==> Parameters: 0(Integer), 5(Integer)
+2020-06-04 14:07:34.277 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.Q.selectBySearch                 : <==      Total: 5
+2020-06-04 14:07:34.277 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:34.277 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:34.278 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:34.279 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:34.279 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:34.280 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:34.280 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:34.282 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 99(Long)
+2020-06-04 14:07:34.283 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:34.284 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:34.284 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 98(Long)
+2020-06-04 14:07:34.287 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-06-04 14:07:34.287 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR_URL from USER where ID = ? 
+2020-06-04 14:07:34.288 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 98(Long)
+2020-06-04 14:07:34.288 DEBUG 10300 --- [http-nio-8888-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
